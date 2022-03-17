@@ -1,9 +1,10 @@
 import React from "react";
+import Checkbox from "./components/Checkbox/Checkbox";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello</h1>
+    <div style={{ backgroundColor: "gray", height: "100vh" }} className="App">
+      <Checkbox label="Task 2-1" />
     </div>
   );
 }
