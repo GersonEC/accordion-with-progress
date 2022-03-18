@@ -6,5 +6,6 @@ describe("Accordion", () => {
   test("it should render", () => {
     render(<Accordion />);
     const accordion = screen.getByRole("button");
+    expect(accordion).toBeInTheDocument();
   });
 });
