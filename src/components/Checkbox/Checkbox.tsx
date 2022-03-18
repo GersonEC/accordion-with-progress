@@ -1,5 +1,4 @@
 import { useState } from "react";
-import styled from "styled-components";
 
 interface Props {
   label: string;
@@ -9,7 +8,7 @@ const Checkbox: React.FC<Props> = (props: Props) => {
   const [checked, setChecked] = useState<boolean>(false);
   return (
     <>
-      <CheckboxStyled
+      <input
         type="checkbox"
         aria-checked={checked}
         checked={checked}
@@ -19,12 +18,5 @@ const Checkbox: React.FC<Props> = (props: Props) => {
     </>
   );
 };
-
-const CheckboxStyled = styled.input`
-  border: solid red;
-  &:checked {
-    border: solid red;
-  }
-`;
 
 export default Checkbox;
