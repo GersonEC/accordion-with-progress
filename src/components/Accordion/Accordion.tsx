@@ -1,7 +1,11 @@
 import { useState } from "react";
 import "./Accordion.css";
 
-const Accordion: React.FC = () => {
+interface Props {
+  title: string;
+}
+
+const Accordion: React.FC<Props> = (props: Props) => {
   const [toggle, setToggle] = useState<boolean>(false);
   return (
     <>
@@ -14,7 +18,7 @@ const Accordion: React.FC = () => {
           onClick={() => setToggle(!toggle)}
         >
           <span className="Accordion-title">
-            Personal Information
+            {props.title}
             <span className="Accordion-icon"></span>
           </span>
         </button>
