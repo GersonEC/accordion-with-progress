@@ -32,7 +32,17 @@ const Status = styled.div`
 
 const Icon = styled.span<{ expanded: boolean }>`
   font-size: 1.6rem;
+  color: gray;
+  opacity: 0.8;
   margin-bottom: ${(props) => (!props.expanded ? "12px" : "-10px")};
 `;
 
-export { AccordionButton, Icon, Status, LabelStatus, Title };
+const Fieldset = styled.fieldset`
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 1);
+  min-width: 720px;
+  width: 720px;
+`;
+
+export { AccordionButton, Icon, Status, LabelStatus, Title, Fieldset };

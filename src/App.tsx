@@ -5,8 +5,15 @@ import Checkbox from "./components/Checkbox/Checkbox";
 function App() {
   return (
     <div style={{ backgroundColor: "gray", height: "100vh" }} className="App">
-      <Checkbox label="Task 2-1" />
-      <Accordion title="Group 1" />
+      <Accordion
+        title="Group 1"
+        items={
+          <>
+            <Checkbox label="Task 2-1" />
+            <Checkbox label="Task 2-2" />
+          </>
+        }
+      />
     </div>
   );
 }

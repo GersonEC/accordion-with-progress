@@ -5,10 +5,12 @@ import {
   Status,
   LabelStatus,
   Icon,
+  Fieldset,
 } from "./Accordion.components";
 
 interface Props {
   title: string;
+  items: React.ReactNode;
 }
 
 const Accordion: React.FC<Props> = (props: Props) => {
@@ -29,39 +31,7 @@ const Accordion: React.FC<Props> = (props: Props) => {
           <Icon expanded={expanded}>{labelStatus === "Show" ? "⌄" : "⌃"}</Icon>
         </Status>
       </AccordionButton>
-      {expanded && (
-        <div
-          id="sect1"
-          role="region"
-          aria-labelledby="accordion1id"
-          className="Accordion-panel"
-        >
-          <div>
-            <fieldset>
-              <p>
-                <label htmlFor="cufc1">
-                  Name
-                  <span aria-hidden="true">*</span>:
-                </label>
-                <input
-                  type="text"
-                  value=""
-                  name="Name"
-                  id="cufc1"
-                  className="required"
-                  aria-required="true"
-                />
-              </p>
-              <p>
-                <label htmlFor="cufc2">
-                  Email
-                  <span aria-hidden="true">*</span>:
-                </label>
-              </p>
-            </fieldset>
-          </div>
-        </div>
-      )}
+      {expanded && <Fieldset>{props.items}</Fieldset>}
     </>
   );
 };

@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { Wrapper } from "./Checkbox.components";
 interface Props {
   label: string;
 }
@@ -7,7 +7,7 @@ interface Props {
 const Checkbox: React.FC<Props> = (props: Props) => {
   const [checked, setChecked] = useState<boolean>(false);
   return (
-    <>
+    <Wrapper>
       <input
         type="checkbox"
         aria-checked={checked}
@@ -15,7 +15,7 @@ const Checkbox: React.FC<Props> = (props: Props) => {
         onChange={() => setChecked(!checked)}
       />
       <span>{props.label}</span>
-    </>
+    </Wrapper>
   );
 };
 
