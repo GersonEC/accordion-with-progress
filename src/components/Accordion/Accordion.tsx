@@ -31,7 +31,7 @@ const Accordion: React.FC<Props> = (props: Props) => {
           <Icon expanded={expanded}>{labelStatus === "Show" ? "⌄" : "⌃"}</Icon>
         </Status>
       </AccordionButton>
-      {expanded && <Fieldset>{props.items}</Fieldset>}
+      {expanded && <Fieldset role={"listitem"}>{props.items}</Fieldset>}
     </>
   );
 };

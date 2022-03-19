@@ -28,4 +28,26 @@ describe("Accordion", () => {
     labelStatusElement = screen.getByText(/hide/i, { exact: true });
     expect(labelStatusElement).toBeInTheDocument();
   });
+
+  test("it should show a fieldset when icon is clicked", () => {
+    render(<Accordion title="" items={<></>} />);
+    const accordion = screen.getByRole("button");
+    user.click(accordion);
+    const fieldsetElement = screen.getByRole("listitem");
+    expect(fieldsetElement).toBeInTheDocument();
+  });
+
+  test("it should hide a fieldset when icon is double clicked", () => {
+    render(<Accordion title="" items={<></>} />);
+    const accordion = screen.getByRole("button");
+
+    user.click(accordion);
+
+    const fieldsetElement = screen.getByRole("listitem");
+    expect(fieldsetElement).toBeInTheDocument();
+
+    user.click(accordion);
+
+    expect(fieldsetElement).not.toBeInTheDocument();
+  });
 });
