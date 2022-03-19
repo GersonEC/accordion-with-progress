@@ -15,4 +15,16 @@ describe("Accordion", () => {
     const titleElement = screen.getByText(titleStub, { exact: true });
     expect(titleElement).toBeInTheDocument();
   });
+
+  test("it should have the Show label status as a default when it's closed", () => {
+    render(<Accordion title="" />);
+    const showStatusElement = screen.getByText(/show/i, { exact: true });
+    expect(showStatusElement).toBeInTheDocument();
+  });
+
+  /*test("it should have the Hide label status when click on arrow icon", () => {
+    render(<Accordion title="" />);
+    const showStatusElement = screen.getByText(/show/i, { exact: true });
+    expect(showStatusElement).toBeInTheDocument();
+  });*/
 });

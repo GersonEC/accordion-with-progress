@@ -7,6 +7,8 @@ interface Props {
 
 const Accordion: React.FC<Props> = (props: Props) => {
   const [toggle, setToggle] = useState<boolean>(false);
+  const [labelStatus, setLabelStatus] = useState<string>("Show");
+
   return (
     <>
       <h3>
@@ -19,6 +21,7 @@ const Accordion: React.FC<Props> = (props: Props) => {
         >
           <span className="Accordion-title">
             {props.title}
+            <span>{labelStatus}</span>
             <span className="Accordion-icon"></span>
           </span>
         </button>
