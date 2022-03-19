@@ -6,7 +6,7 @@ function App() {
   return (
     <div style={{ backgroundColor: "gray", height: "100vh" }} className="App">
       <Checkbox label="Task 2-1" />
-      <Accordion />
+      <Accordion title="Group 1" />
     </div>
   );
 }
