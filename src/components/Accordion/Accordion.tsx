@@ -10,7 +10,8 @@ const Accordion: React.FC<Props> = (props: Props) => {
   const [labelStatus, setLabelStatus] = useState<"Show" | "Hide">("Show");
 
   const handleIconCick = () => {
-    setLabelStatus("Hide");
+    setLabelStatus(labelStatus === "Show" ? "Hide" : "Show");
+    setToggle(!toggle);
   };
 
   return (
@@ -21,12 +22,12 @@ const Accordion: React.FC<Props> = (props: Props) => {
           className="Accordion-trigger"
           aria-controls="sect1"
           id="accordion1id"
-          onClick={() => setToggle(!toggle)}
+          onClick={() => handleIconCick()}
         >
           <span className="Accordion-title">
             {props.title}
             <span>{labelStatus}</span>
-            <button onClick={handleIconCick}>⌄</button>
+            <span>{labelStatus === "Show" ? "⌄" : "⌃"}</span>
           </span>
         </button>
       </h3>

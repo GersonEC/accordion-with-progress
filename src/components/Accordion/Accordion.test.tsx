@@ -18,7 +18,7 @@ describe("Accordion", () => {
 
   test("it should have the Hide label status when click on arrow icon", () => {
     render(<Accordion title="" />);
-    const iconElement = screen.getByRole("button", { name: "⌄" });
+    const iconElement = screen.getByText("⌄", { exact: true });
     let labelStatusElement = screen.getByText(/show/i, { exact: true });
 
     expect(labelStatusElement).toBeInTheDocument();
