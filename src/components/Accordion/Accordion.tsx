@@ -1,37 +1,35 @@
 import { useState } from "react";
-import "./Accordion.css";
+import {
+  AccordionButton,
+  Title,
+  Status,
+  LabelStatus,
+  Icon,
+} from "./Accordion.components";
 
 interface Props {
   title: string;
 }
 
 const Accordion: React.FC<Props> = (props: Props) => {
-  const [toggle, setToggle] = useState<boolean>(false);
+  const [expanded, setExpanded] = useState<boolean>(false);
   const [labelStatus, setLabelStatus] = useState<"Show" | "Hide">("Show");
 
   const handleIconCick = () => {
     setLabelStatus(labelStatus === "Show" ? "Hide" : "Show");
-    setToggle(!toggle);
+    setExpanded(!expanded);
   };
 
   return (
     <>
-      <h3>
-        <button
-          aria-expanded="true"
-          className="Accordion-trigger"
-          aria-controls="sect1"
-          id="accordion1id"
-          onClick={() => handleIconCick()}
-        >
-          <span className="Accordion-title">
-            {props.title}
-            <span>{labelStatus}</span>
-            <span>{labelStatus === "Show" ? "⌄" : "⌃"}</span>
-          </span>
-        </button>
-      </h3>
-      {toggle && (
+      <AccordionButton onClick={() => handleIconCick()}>
+        <Title>{props.title}</Title>
+        <Status>
+          <LabelStatus>{labelStatus}</LabelStatus>
+          <Icon expanded={expanded}>{labelStatus === "Show" ? "⌄" : "⌃"}</Icon>
+        </Status>
+      </AccordionButton>
+      {expanded && (
         <div
           id="sect1"
           role="region"
