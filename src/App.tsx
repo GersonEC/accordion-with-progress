@@ -3,7 +3,10 @@ import { AccordionList } from "./containers/AccordionList/AccordionList";
 
 function App() {
   return (
-    <div style={{ backgroundColor: "gray", height: "100vh" }} className="App">
+    <div
+      style={{ backgroundColor: "darkblue", height: "100vh" }}
+      className="App"
+    >
       <AccordionList />
     </div>
   );

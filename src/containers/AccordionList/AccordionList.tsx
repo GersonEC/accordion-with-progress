@@ -1,9 +1,10 @@
+import styled from "styled-components";
 import { Accordion } from "../../components/Accordion/Accordion";
 import Checkbox from "../../components/Checkbox/Checkbox";
 
 const AccordionList: React.FC = () => {
   return (
-    <div>
+    <Wrapper>
       <Accordion
         title="Group 1"
         items={
@@ -31,8 +32,15 @@ const AccordionList: React.FC = () => {
           </>
         }
       />
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  border: solid red;
+  display: flex;
+  flex-direction: column;
+  width: 750px;
+`;
 
 export { AccordionList };

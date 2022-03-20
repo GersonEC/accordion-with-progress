@@ -5,8 +5,8 @@ const AccordionButton = styled.button`
   border: 1px solid lightgray;
   border-bottom: none;
   background-color: rgba(255, 255, 255, 1);
-  min-width: 750px;
-  width: 750px;
+  /*min-width: 750px;
+  width: 750px;*/
   height: 60px;
   align-items: center;
   padding: 0 32px;
@@ -43,10 +43,11 @@ const Fieldset = styled.fieldset`
   display: flex;
   flex-direction: column;
   background-color: rgba(255, 255, 255, 1);
-  min-width: 722px;
-  width: 722px;
-  border: 1px solid lightgray;
+  /*min-width: 722px;
+  width: 722px;*/
+  border-bottom: 1px solid lightgray;
   border-top: none;
+  border: hidden;
 `;
 
 export { AccordionButton, Icon, Status, LabelStatus, Title, Fieldset };
