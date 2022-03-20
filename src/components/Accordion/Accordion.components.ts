@@ -2,15 +2,13 @@ import styled from "styled-components";
 
 const AccordionButton = styled.button`
   display: flex;
-  border: 1px solid lightgray;
-  border-bottom: none;
   background-color: rgba(255, 255, 255, 1);
-  /*min-width: 750px;
-  width: 750px;*/
   height: 60px;
   align-items: center;
   padding: 0 32px;
+  width: 100%;
   justify-content: space-between;
+  border: none;
   &:hover {
     cursor: pointer;
   }
@@ -42,9 +40,6 @@ const Icon = styled.span<{ expanded: boolean }>`
 const Fieldset = styled.fieldset`
   display: flex;
   flex-direction: column;
-  background-color: rgba(255, 255, 255, 1);
-  /*min-width: 722px;
-  width: 722px;*/
   border-bottom: 1px solid lightgray;
   border-top: none;
   border: hidden;

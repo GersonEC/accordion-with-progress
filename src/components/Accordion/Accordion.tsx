@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styled from "styled-components";
 import {
   AccordionButton,
   Title,
@@ -23,7 +24,7 @@ const Accordion: React.FC<Props> = (props: Props) => {
   };
 
   return (
-    <>
+    <Wrapper>
       <AccordionButton onClick={() => handleIconCick()}>
         <Title>{props.title}</Title>
         <Status>
@@ -32,8 +33,12 @@ const Accordion: React.FC<Props> = (props: Props) => {
         </Status>
       </AccordionButton>
       {expanded && <Fieldset role={"listitem"}>{props.items}</Fieldset>}
-    </>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  border: 1px solid lightgray;
+`;
 
 export { Accordion };

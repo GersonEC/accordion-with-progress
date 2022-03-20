@@ -3,7 +3,5 @@ import user from "@testing-library/user-event";
 import { Progress } from "./Progress";
 
 describe("Progress", () => {
-  test("it should render", () => {
-    render(<Progress />);
-  });
+  test("it should render", () => {});
 });

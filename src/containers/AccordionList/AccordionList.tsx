@@ -37,7 +37,6 @@ const AccordionList: React.FC = () => {
 };
 
 const Wrapper = styled.div`
-  border: solid red;
   display: flex;
   flex-direction: column;
   width: 750px;
