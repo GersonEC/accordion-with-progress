@@ -1,20 +1,35 @@
 import { useState } from "react";
+import { Task } from "../../utilities/model";
 import { Wrapper } from "./Checkbox.components";
 interface Props {
-  label: string;
+  task: Task;
+  onCheckedChange: (task: Task) => void;
 }
 
 const Checkbox: React.FC<Props> = (props: Props) => {
-  const [checked, setChecked] = useState<boolean>(false);
+  const [internalChecked, setInternalChecked] = useState<boolean>(
+    props.task.checked
+  );
+
+  const onCheckedChange = (newInternalChecked: boolean) => {
+    setInternalChecked(newInternalChecked);
+    const newTask: Task = {
+      description: props.task.description,
+      value: props.task.value,
+      checked: newInternalChecked,
+    };
+    props.onCheckedChange(newTask);
+  };
+
   return (
     <Wrapper>
       <input
         type="checkbox"
-        aria-checked={checked}
-        checked={checked}
-        onChange={() => setChecked(!checked)}
+        aria-checked={internalChecked}
+        checked={internalChecked}
+        onChange={() => onCheckedChange(!internalChecked)}
       />
-      <span>{props.label}</span>
+      <span>{props.task.description}</span>
     </Wrapper>
   );
 };

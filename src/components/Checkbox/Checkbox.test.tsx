@@ -1,20 +1,24 @@
 import { render, screen } from "@testing-library/react";
 import Checkbox from "./Checkbox";
 import user from "@testing-library/user-event";
+import { Task } from "../../utilities/model";
 
 describe("Checkbox", () => {
+  const taskStub: Task = {
+    description: "task",
+    value: 10,
+    checked: false,
+  };
   test("given a label as a prop, it should render it", () => {
-    const labelStub = "Task 2-1";
-    render(<Checkbox label={labelStub} />);
+    render(<Checkbox task={taskStub} onCheckedChange={() => {}} />);
 
-    const label = screen.getByText(labelStub);
+    const label = screen.getByText(taskStub.description);
 
     expect(label).toBeInTheDocument();
   });
 
   test("when click it, it should be checked", () => {
-    const labelStub = "Task 2-1";
-    render(<Checkbox label={labelStub} />);
+    render(<Checkbox task={taskStub} onCheckedChange={() => {}} />);
     const checkbox = screen.getByRole("checkbox");
 
     user.click(checkbox);
@@ -23,8 +27,7 @@ describe("Checkbox", () => {
   });
 
   test("when click it twice, it should be unchecked", () => {
-    const labelStub = "Task 2-1";
-    render(<Checkbox label={labelStub} />);
+    render(<Checkbox task={taskStub} onCheckedChange={() => {}} />);
     const checkbox = screen.getByRole("checkbox");
 
     user.dblClick(checkbox);

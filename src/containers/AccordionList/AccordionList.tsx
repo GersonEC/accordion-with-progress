@@ -1,32 +1,29 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Accordion } from "../../components/Accordion/Accordion";
 import Checkbox from "../../components/Checkbox/Checkbox";
-import { TaskGroup } from "../../utilities/model";
+import { Task } from "../../utilities/model";
+import { useTaskGroups } from "../../utilities/useTaskGroups";
 
 const AccordionList: React.FC = () => {
-  const [taskGroups, setTaskGroups] = useState<TaskGroup[] | null>(null);
+  const { taskGroups, setTask } = useTaskGroups();
 
-  useEffect(() => {
-    const setGroups = async () => {
-      const response = await fetch(
-        "https://gist.githubusercontent.com/huvber/ba0d534f68e34f1be86d7fe7eff92c96/raw/508f46dbf6535f830aa92cf97359853c5700bab1/mock-progress"
-      );
-      const data = await response.json();
-      setTaskGroups(data);
-    };
-    setGroups();
-  }, []);
+  const handleCheckedChange = (task: Task) => {
+    setTask(task);
+  };
 
   return (
     <Wrapper>
-      {taskGroups?.map((taskGroup) => {
+      {taskGroups?.map((taskGroup, index) => {
         return (
           <Accordion
-            key={taskGroup.name}
+            key={index}
             title={taskGroup.name}
-            items={taskGroup.tasks.map((task) => (
-              <Checkbox key={task.description} label={task.description} />
+            items={taskGroup.tasks.map((task, index) => (
+              <Checkbox
+                key={index}
+                task={task}
+                onCheckedChange={handleCheckedChange}
+              />
             ))}
           />
         );

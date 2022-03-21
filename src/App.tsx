@@ -2,14 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import { Progress } from "./components/Progress/Progress";
 import { AccordionList } from "./containers/AccordionList/AccordionList";
+import { useTaskGroups } from "./utilities/useTaskGroups";
 
 function App() {
+  const { totalValue } = useTaskGroups();
   return (
     <Wrapper>
       <Main>
         <Header>
           <h3>Grouped Tasks</h3>
-          <Progress value={70} />
+          <Progress value={totalValue} />
         </Header>
         <AccordionList />
       </Main>
