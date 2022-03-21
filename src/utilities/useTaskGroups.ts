@@ -18,6 +18,17 @@ export const useTaskGroups = () => {
     fetchTaskGroups();
   }, [setTaskGroups]);
 
+  const getTotalTasksValue = (): number => {
+    let response: number = 0;
+    taskGroups.forEach((taskGroup) => {
+      taskGroup.tasks.forEach((task) => {
+        response += task.value;
+      });
+    });
+
+    return response;
+  };
+
   const getTotalTasksChecked = (): Task[] => {
     let response: Task[] = [];
     taskGroups.forEach((taskGroup) => {
@@ -55,13 +66,30 @@ export const useTaskGroups = () => {
     setTaskGroups(newTaskGroups);
   };
 
-  const totalValue = getTotalTasksChecked()
-    .map((task) => task.value)
-    .reduce((prevValue, currValue) => prevValue + currValue, 0);
+  const getTaskNormalizedValue = (taskValue: number) => {
+    let response = 0;
+    const sumAllTasksValue = getTotalTasksValue();
+
+    response = (taskValue * 100) / sumAllTasksValue;
+
+    return response;
+  };
+
+  const getTotalValueNormalized = () => {
+    let response = 0;
+    const totalTasksChecked = getTotalTasksChecked();
+    response = totalTasksChecked
+      .map((taskChecked) => getTaskNormalizedValue(taskChecked.value))
+      .reduce((prevValue, currValue) => prevValue + currValue, 0);
+
+    return response;
+  };
+
+  const totalValueNormalized = getTotalValueNormalized();
 
   return {
     taskGroups,
     setTask,
-    totalValue,
+    totalValueNormalized,
   };
 };

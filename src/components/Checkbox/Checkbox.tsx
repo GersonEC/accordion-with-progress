@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Task } from "../../utilities/model";
-import { Wrapper } from "./Checkbox.components";
+import { Wrapper, Input } from "./Checkbox.components";
 interface Props {
   task: Task;
   onCheckedChange: (task: Task) => void;
@@ -23,7 +23,7 @@ const Checkbox: React.FC<Props> = (props: Props) => {
 
   return (
     <Wrapper>
-      <input
+      <Input
         type="checkbox"
         aria-checked={internalChecked}
         checked={internalChecked}

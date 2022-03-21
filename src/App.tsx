@@ -5,13 +5,13 @@ import { useTaskGroups } from "./utilities/useTaskGroups";
 import { Wrapper, Main, Header, AccordionListWrapper } from "./App.components";
 
 function App() {
-  const { totalValue } = useTaskGroups();
+  const { totalValueNormalized } = useTaskGroups();
   return (
     <Wrapper>
       <Main>
         <Header>
           <h3>Grouped Tasks</h3>
-          <Progress value={totalValue} />
+          <Progress value={totalValueNormalized} />
         </Header>
         <AccordionListWrapper>
           <AccordionList />
