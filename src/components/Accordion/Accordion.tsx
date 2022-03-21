@@ -1,5 +1,4 @@
 import { useState } from "react";
-import styled from "styled-components";
 import {
   AccordionButton,
   Title,
@@ -7,6 +6,7 @@ import {
   LabelStatus,
   Icon,
   Fieldset,
+  Wrapper,
 } from "./Accordion.components";
 
 interface Props {
@@ -26,7 +26,7 @@ const Accordion: React.FC<Props> = (props: Props) => {
   return (
     <Wrapper>
       <AccordionButton onClick={() => handleIconCick()}>
-        <Title>{props.title}</Title>
+        <Title>📋 {props.title}</Title>
         <Status>
           <LabelStatus>{labelStatus}</LabelStatus>
           <Icon expanded={expanded}>{labelStatus === "Show" ? "⌄" : "⌃"}</Icon>
@@ -36,9 +36,5 @@ const Accordion: React.FC<Props> = (props: Props) => {
     </Wrapper>
   );
 };
-
-const Wrapper = styled.div`
-  border: 1px solid lightgray;
-`;
 
 export { Accordion };

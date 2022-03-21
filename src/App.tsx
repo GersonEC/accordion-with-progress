@@ -7,8 +7,10 @@ function App() {
   return (
     <Wrapper>
       <Main>
-        <h3>Grouped Tasks</h3>
-        <Progress value={100} />
+        <Header>
+          <h3>Grouped Tasks</h3>
+          <Progress value={70} />
+        </Header>
         <AccordionList />
       </Main>
     </Wrapper>
@@ -16,11 +18,17 @@ function App() {
 }
 
 const Wrapper = styled.div`
-  background-color: lightgray;
+  background-color: rgb(253, 252, 252);
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-y: auto;
+`;
+
+const Header = styled.header`
+  border: solid green;
+  width: 100%;
 `;
 
 const Main = styled.main`
@@ -31,7 +39,11 @@ const Main = styled.main`
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  height: 500px;
+  border: 10px solid red;
   gap: 16px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  overflow-y: auto;
 `;
 
 export default App;

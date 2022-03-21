@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+const Wrapper = styled.div`
+  border: 1px solid lightgray;
+`;
+
 const AccordionButton = styled.button`
   display: flex;
   background-color: rgba(255, 255, 255, 1);
@@ -43,6 +47,8 @@ const Fieldset = styled.fieldset`
   border-bottom: 1px solid lightgray;
   border-top: none;
   border: hidden;
+  padding: 0 0 24px 32px;
+  gap: 8px;
 `;
 
-export { AccordionButton, Icon, Status, LabelStatus, Title, Fieldset };
+export { AccordionButton, Icon, Status, LabelStatus, Title, Fieldset, Wrapper };
