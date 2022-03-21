@@ -3,7 +3,6 @@
 import React from "react";
 import { ProgressWrapper, Bar, Value } from "./Progress.components";
 const Progress = ({ value }: { value: number }) => {
-  console.log({ value });
   return (
     <ProgressWrapper
       role="progressbar"
